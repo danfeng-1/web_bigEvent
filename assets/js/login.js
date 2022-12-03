@@ -34,7 +34,7 @@ $(function(){
         // 2.发起Ajax的post请求
         // 请求的url 地址， 请求的数据， 响应。
         // 请求的数据，按照属性选择器来的
-        $.post('http://www.liulongbin.top:3007/api/reguser',{username:$('#form_reg [name=username]').val(),
+        $.post('/api/reguser',{username:$('#form_reg [name=username]').val(),
         password:$('#form_reg [name=password]').val()}, function(res){
             if(res.status !== 0){
                 // return console.log(res.message)
@@ -52,7 +52,7 @@ $(function(){
     $('#form_login').submit(function(e) {
         e.preventDefault()
         $.ajax({
-            url: 'http://www.liulongbin.top:3007/api/login',
+            url: '/api/login',//http://www.liulongbin.top:3007/api/login
             method: 'POST',
             data: $(this).serialize(), //获取表单里面的所有数据
             success: function(res){
