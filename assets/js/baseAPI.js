@@ -3,8 +3,9 @@
 // 在这个函数 中，可以拿到我们给ajax 提供的配置对象(补充，记得在vue里面，也可以通过配置文件来进行拼接)
 
 $.ajaxPrefilter(function(options){
-    console.log(options.url) // 接口路径
 
+    console.log(options.url) // 接口路径
+    
     // 在发起真正的 Ajax 请求之前，统一拼接请求的根路径
     //http://ajax.frontend.itheima.net 
     
@@ -17,6 +18,7 @@ $.ajaxPrefilter(function(options){
             Authorization: localStorage.getItem('token') || ''
         }
     }
+<<<<<<< HEAD
     
     //console.log(options.url)
     options.complete = function(res){
@@ -24,10 +26,24 @@ $.ajaxPrefilter(function(options){
         //console.log(res)
         //在 complete 回调函数中，可以使用 res.responseJSON 拿到服务器响应回来的数据
         if(res.responseJOSN.status === 1 && res.responseJOSN.message === '身份认证失败！'){
+=======
+    console.log(options.url) // 接口路径
+    
+
+    options.complete = function(res){
+        console.log('执行了 complete 回调')
+        //console.log(res)
+        //在 complete 回调函数中，可以使用 res.responseJSON 拿到服务器响应回来的数据
+        if(res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！'){
+>>>>>>> user
             // 1. 强制情况token
             localStorage.removeItem('token')
             // 2. 强制跳转到登录页面
             location.href = '/login.html'
         }
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> user
 })
