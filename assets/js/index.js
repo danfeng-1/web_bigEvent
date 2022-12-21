@@ -27,11 +27,7 @@ function logOut(){
 }
 
 
-<<<<<<< HEAD
-// 获取用户的基本信息
-=======
 // 获取用户的基本信息并渲染
->>>>>>> user
 function getUserInfo() {
     $.ajax({
         method: 'GET',
@@ -44,10 +40,6 @@ function getUserInfo() {
             if(res.status !== 0){
                 return layui.layer.msg('获取用户信息失败！')
             }
-<<<<<<< HEAD
-
-=======
->>>>>>> user
             //调用 renderAvatar 渲染用户的头像
             renderAvatar(res.data)
         },

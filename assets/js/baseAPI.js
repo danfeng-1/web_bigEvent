@@ -18,15 +18,6 @@ $.ajaxPrefilter(function(options){
             Authorization: localStorage.getItem('token') || ''
         }
     }
-<<<<<<< HEAD
-    
-    //console.log(options.url)
-    options.complete = function(res){
-        //console.log('执行了 complete 回调')
-        //console.log(res)
-        //在 complete 回调函数中，可以使用 res.responseJSON 拿到服务器响应回来的数据
-        if(res.responseJOSN.status === 1 && res.responseJOSN.message === '身份认证失败！'){
-=======
     console.log(options.url) // 接口路径
     
 
@@ -35,15 +26,11 @@ $.ajaxPrefilter(function(options){
         //console.log(res)
         //在 complete 回调函数中，可以使用 res.responseJSON 拿到服务器响应回来的数据
         if(res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！'){
->>>>>>> user
             // 1. 强制情况token
             localStorage.removeItem('token')
             // 2. 强制跳转到登录页面
             location.href = '/login.html'
         }
     }
-<<<<<<< HEAD
-=======
     
->>>>>>> user
 })
